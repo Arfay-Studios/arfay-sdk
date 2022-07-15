@@ -20,13 +20,13 @@ import java.io.File
  */
 @Serializable
 data class SerialStorage(
-	var type: DatabaseType = DatabaseType.SQLITE,
-	var username: String = "root",
-	var password: String = "",
-	var host: String = "localhost",
-	var database: String = "",
-	var port: Int = 3306,
-	var useSSL: Boolean = false,
+    var type: DatabaseType = DatabaseType.SQLITE,
+    var username: String = "root",
+    var password: String = "",
+    var host: String = "localhost",
+    var database: String = "",
+    var port: Int = 3306,
+    var useSSL: Boolean = false,
 )
 
 /**
