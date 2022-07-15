@@ -57,7 +57,7 @@ class ChatPagination<T>(var source: Iterable<T>) {
     }
 
     fun show(player: Player, page: Int) {
-        repeat((0..10).count()) { player.sendMessage("§0\n") }
+        repeat(10) { player.sendMessage("§0\n") }
 
         pages[page - 1].forEach { player.spigot().sendMessage(it) }
 

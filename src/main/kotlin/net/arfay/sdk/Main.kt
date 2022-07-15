@@ -10,14 +10,20 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 package net.arfay.sdk
 
-import org.bukkit.plugin.java.JavaPlugin
+import net.arfay.sdk.repository.*
+import org.bukkit.plugin.java.*
 
 class Main : JavaPlugin() {
-
-    override fun onEnable() {
-
-    }
-
-    override fun onDisable() {
-    }
+   
+   override fun onLoad() {
+      LibService.loadSDK()
+      LibService.loadAll()
+   }
+   
+   override fun onEnable() {
+      
+   }
+   
+   override fun onDisable() {
+   }
 }
