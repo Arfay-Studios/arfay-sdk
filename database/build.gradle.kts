@@ -1,3 +1,4 @@
 dependencies {
-    api(project(":core"))
+   compileOnly(project(":core"))
+   compileOnly(project(":serializer"))
 }

@@ -16,30 +16,6 @@ import net.arfay.sdk.database.DatabaseType
 typealias ConfigurationBuilder = HikariConfig.() -> Unit
 
 /**
- * A factory object used for creating new [HikariConfig].
- */
-object ConfigurationFactory {
-	
-	/**
-	 * Creates a new hikari config with the specified builder.
-	 */
-	fun create(builder: ConfigurationBuilder): HikariConfig {
-		return HikariConfig().apply(builder)
-	}
-	
-	/**
-	 * Creates a new hikari config with the type of database
-	 * and the specified builder.
-	 */
-	fun of(type: DatabaseType, builder: ConfigurationBuilder): HikariConfig {
-		return HikariConfig().apply {
-			driverClassName = type.driver
-			builder(this)
-		}
-	}
-}
-
-/**
  * Creates a new hikari config with the specified builder.
  */
 fun createConfiguration(builder: ConfigurationBuilder): HikariConfig {

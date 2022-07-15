@@ -13,9 +13,9 @@ package net.arfay.sdk.database.columns
 import kotlinx.serialization.*
 import kotlinx.serialization.modules.*
 import net.arfay.sdk.database.util.cast
+import net.arfay.sdk.serializer.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.vendors.*
-import walkmc.serializer.*
 import walkmc.serializer.common.*
 import kotlin.reflect.*
 
@@ -30,14 +30,14 @@ abstract class JsonColumnType<T : Any>(
 ) : StringColumnType() {
 	val serialType by lazy { module.serializer(type.java) }
 	
-	override fun notNullValueToDB(value: Any) = JsonStrategySave.encodeToString(serialType, value.cast())
+	override fun notNullValueToDB(value: Any) = JsonStrategyDatabase.encodeToString(serialType, value.cast())
 	override fun nonNullValueToString(value: Any): String {
-		val string = JsonStrategySave.encodeToString(serialType, value.cast())
+		val string = JsonStrategyDatabase.encodeToString(serialType, value.cast())
 		return "'$string'"
 	}
 	
 	override fun valueFromDB(value: Any): T = when (value) {
-		is String -> JsonStrategySave.decodeFromString(serialType, value).cast()
+		is String -> JsonStrategyDatabase.decodeFromString(serialType, value).cast()
 		else -> value.cast()
 	}
 }

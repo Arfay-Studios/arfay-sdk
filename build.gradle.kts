@@ -1,7 +1,6 @@
 plugins {
-   kotlin("jvm") version "1.6.10"
-   kotlin("plugin.serialization") version "1.6.10"
-   id("com.google.devtools.ksp") version "1.6.10-1.0.2"
+   kotlin("jvm") version "1.7.10"
+   kotlin("plugin.serialization") version "1.7.10"
    id("java")
    id("com.github.johnrengelman.shadow") version "7.0.0"
 }
@@ -13,13 +12,14 @@ allprojects {
 
    apply(plugin = "org.jetbrains.kotlin.jvm")
    apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
-   apply(plugin = "com.google.devtools.ksp")
    apply(plugin = "java")
    apply(plugin = "com.github.johnrengelman.shadow")
 
+   group = "net.arfay"
+   version = "1.0-SNAPSHOT"
+   
    repositories {
       mavenCentral()
-
       maven(url = "https://repo.aikar.co/content/groups/aikar/")
       maven(url = "https://jitpack.io")
    }
@@ -31,7 +31,7 @@ allprojects {
 
       // kotlin
       api(kotlin("stdlib-jdk8"))
-      api(kotlin("kotlin-reflect"))
+      api(kotlin("reflect"))
       api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
 
       // database
@@ -62,7 +62,7 @@ allprojects {
       api("it.unimi.dsi:fastutil:8.5.8")
       api("net.jafama:jafama:2.3.2")
 
-      compileOnly("io.github.uinnn:serializer-framework:2.4.0")
+      //compileOnly("io.github.uinnn:serializer-framework:2.4.0")
 
       compileOnly("org.projectlombok:lombok:1.18.22")
       annotationProcessor("org.projectlombok:lombok:1.18.22")
@@ -72,6 +72,10 @@ allprojects {
    tasks {
       withType<GenerateModuleMetadata> {
          isEnabled = false
+      }
+      
+      compileKotlin {
+         kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.time.ExperimentalTime,kotlin.ExperimentalStdlibApi,kotlinx.coroutines.DelicateCoroutinesApi,kotlinx.coroutines.ExperimentalCoroutinesApi,kotlinx.serialization.ExperimentalSerializationApi,kotlinx.serialization.InternalSerializationApi,com.google.devtools.ksp.KspExperimental,kotlin.contracts.ExperimentalContracts"
       }
 
       shadowJar {
