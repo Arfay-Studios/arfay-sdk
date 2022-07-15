@@ -16,7 +16,7 @@ import org.bukkit.plugin.java.*
 class Main : JavaPlugin() {
    
    override fun onLoad() {
-      LibService.loadSDK()
+      LibService.loadSDK();
       LibService.loadAll()
    }
    
