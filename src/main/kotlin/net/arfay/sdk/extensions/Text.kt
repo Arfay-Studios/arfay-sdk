@@ -96,15 +96,6 @@ fun String.underline() = asText().underline()
 fun String.strikethrough() = asText().strikethrough()
 fun String.obfuscated() = asText().obfuscated()
 
-fun String.click(clickEvent: ClickEvent) = asText().click(clickEvent)
-fun String.openUrl(url: String) = click(ClickEvent(ClickEvent.Action.OPEN_URL, url))
-fun String.runCommand(command: String) = click(ClickEvent(ClickEvent.Action.RUN_COMMAND, command))
-fun String.suggestCommand(command: String) = click(ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, command))
-
-fun String.hover(hoverEvent: HoverEvent) = asText().hover(hoverEvent)
-fun String.showText(component: BaseComponent) = hover(HoverEvent(HoverEvent.Action.SHOW_TEXT, arrayOf(component)))
-fun String.showText(vararg components: BaseComponent) = hover(HoverEvent(HoverEvent.Action.SHOW_TEXT, components))
-
 /**
  * Chaining methods for TextComponent and BaseComponent
  */
@@ -118,19 +109,6 @@ fun <T : BaseComponent> T.italic() = apply { isItalic = true }
 fun <T : BaseComponent> T.underline() = apply { isUnderlined = true }
 fun <T : BaseComponent> T.strikethrough() = apply { isStrikethrough = true }
 fun <T : BaseComponent> T.obfuscated() = apply { isObfuscated = true }
-
-fun <T : BaseComponent> T.click(clickEvent: ClickEvent) = apply { this.clickEvent = clickEvent }
-fun <T : BaseComponent> T.openUrl(url: String) = click(ClickEvent(ClickEvent.Action.OPEN_URL, url))
-fun <T : BaseComponent> T.runCommand(command: String) = click(ClickEvent(ClickEvent.Action.RUN_COMMAND, command))
-fun <T : BaseComponent> T.suggestCommand(command: String) = click(ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, command))
-
-fun <T : BaseComponent> T.hover(hoverEvent: HoverEvent) = apply { this.hoverEvent = hoverEvent }
-fun <T : BaseComponent> T.showText(component: BaseComponent) = hover(HoverEvent(HoverEvent.Action.SHOW_TEXT, arrayOf(component)))
-fun <T : BaseComponent> T.showText(vararg components: BaseComponent) = hover(HoverEvent(HoverEvent.Action.SHOW_TEXT, components))
-
-/**
- * Replaces
- */
 
 /**
  * Replace current [TextComponent.text], [BaseComponent.hover] text
@@ -220,7 +198,7 @@ fun <T : BaseComponent> T.replaceOnClick(
     ignoreCase: Boolean = false
 ) = apply {
     if(clickEvent != null)
-        click(ClickEvent(clickEvent.action, clickEvent.value.replace(oldValue, newValue, ignoreCase)))
+        clickEvent = ClickEvent(clickEvent.action, clickEvent.value.replace(oldValue, newValue, ignoreCase))
 }
 
 /**
@@ -237,25 +215,6 @@ fun <T : BaseComponent> T.replaceOnAllClick(
     if(extra != null)
         for (component in extra)
             component.replaceOnAllClick(oldValue, newValue, ignoreCase)
-}
-
-fun <T : BaseComponent> T.replaceOnRunCommand(
-    oldValue: String,
-    newValue: String,
-    ignoreCase: Boolean = false
-) = apply {
-    if(clickEvent != null && clickEvent.action == ClickEvent.Action.RUN_COMMAND)
-        runCommand(clickEvent.value.replace(oldValue, newValue, ignoreCase))
-}
-fun <T : BaseComponent> T.replaceOnAllRunCommand(
-    oldValue: String,
-    newValue: String,
-    ignoreCase: Boolean = false
-) = apply {
-    replaceOnRunCommand(oldValue, newValue, ignoreCase)
-    if(extra != null)
-        for (component in extra)
-            component.replaceOnRunCommand(oldValue, newValue, ignoreCase)
 }
 
 /**

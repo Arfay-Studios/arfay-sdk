@@ -48,7 +48,7 @@ class Conversations(
                 try {
                     handle(ConversationScope(input.orEmpty(), context))
                 } catch (fail: ConversationFail) {
-                    context.msg("&c${fail.message}")
+                    context.msg(fail.message)
 
                     return if (fail.stop) null else this
                 }

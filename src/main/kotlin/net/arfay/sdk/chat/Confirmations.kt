@@ -10,10 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 package net.arfay.sdk.chat
 
-import net.arfay.sdk.strings.colored
-import net.md_5.bungee.api.chat.ClickEvent
-import net.md_5.bungee.api.chat.ComponentBuilder
-import net.md_5.bungee.api.chat.HoverEvent
+import net.arfay.sdk.extensions.msg
 import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.entity.Player
 
@@ -22,33 +19,22 @@ class Confirmations (
     private var message: String,
     private var acceptMessage: String,
     private var denyMessage: String,
+    private var separator: String,
     private var acceptHover: String,
     private var denyHover: String,
     private var whenAccept: String,
     private var whenDeny: String,
 ){
     fun send() {
-
-        val text = TextComponent(message)
-
-        val accept = TextComponent(acceptMessage)
-        accept.clickEvent = ClickEvent(ClickEvent.Action.RUN_COMMAND, whenAccept)
-        accept.hoverEvent = HoverEvent(
-            HoverEvent.Action.SHOW_TEXT,
-            ComponentBuilder(acceptHover).create()
+        player.msg(
+            TextComponent(message)
+                .append(acceptMessage)
+                .run(whenAccept)
+                .show(acceptHover)
+                .append(separator)
+                .append(denyMessage)
+                .run(whenDeny)
+                .show(denyHover)
         )
-
-        val deny = TextComponent(denyMessage)
-        deny.clickEvent = ClickEvent(ClickEvent.Action.RUN_COMMAND, whenDeny)
-        deny.hoverEvent = HoverEvent(
-            HoverEvent.Action.SHOW_TEXT,
-            ComponentBuilder(denyHover).create()
-        )
-
-        text.addExtra(accept)
-        text.addExtra("&r&f / ".colored())
-        text.addExtra(deny)
-
-        player.spigot().sendMessage(deny)
     }
 }

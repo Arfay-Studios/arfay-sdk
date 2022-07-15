@@ -22,10 +22,16 @@ dependencies {
     compileOnly("org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT")
 
     compileOnly("io.github.uinnn:serializer-framework:2.4.0")
-    compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.2")
+
+    api("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.2")
+    api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+    api("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.3.2")
+    api("com.charleskorn.kaml:kaml:0.40.0")
+    api("net.benwoodworth.knbt:knbt:0.11.1")
 
     api(kotlin("stdlib-jdk8"))
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+
     api("com.zaxxer:HikariCP:4.0.3")
     api("org.jetbrains.exposed:exposed-core:0.37.3")
     api("org.jetbrains.exposed:exposed-dao:0.37.3")
