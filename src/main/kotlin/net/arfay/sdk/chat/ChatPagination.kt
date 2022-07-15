@@ -62,18 +62,12 @@ class ChatPagination<T>(var source: Iterable<T>) {
         pages[page - 1].forEach { player.spigot().sendMessage(it) }
 
         val previous = TextComponent(backText)
-        previous.clickEvent = ClickEvent(ClickEvent.Action.RUN_COMMAND, "$command " + (page - 1))
-        previous.hoverEvent = HoverEvent(
-            HoverEvent.Action.SHOW_TEXT,
-            ComponentBuilder(backHover).create()
-        )
+            .run("$command " + (page - 1))
+            .show(backHover)
 
         val next = TextComponent(nextText)
-        next.clickEvent = ClickEvent(ClickEvent.Action.RUN_COMMAND, "/sound " + (page + 1))
-        next.hoverEvent = HoverEvent(
-            HoverEvent.Action.SHOW_TEXT,
-            ComponentBuilder(nextHover).create()
-        )
+            .run("$command " + (page + 1))
+            .show(nextHover)
 
         when (page) {
             1 -> player.spigot().sendMessage(next)
