@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 package arfay.database
 
+import arfay.database.factory.configurationOf
 import com.zaxxer.hikari.*
-import net.arfay.sdk.database.factory.configurationOf
 import java.io.*
 
 /**

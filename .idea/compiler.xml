@@ -10,6 +10,7 @@
         <module name="sdk.database.main" />
         <module name="sdk.serializer.main" />
         <module name="sdk.core.main" />
+        <module name="sdk.plugin.main" />
         <module name="sdk.main" />
         <module name="sdk.repository.main" />
       </profile>

@@ -46,7 +46,7 @@ val APIDependencies = listOf(
    // others
    "com.github.ben-manes.caffeine:caffeine:3.0.6",
    "it.unimi.dsi:fastutil:8.5.8",
-   "net.jafama:jafama:2.3.2",
+   "net.jafama:jafama:2.3.2"
 )
 
 allprojects {

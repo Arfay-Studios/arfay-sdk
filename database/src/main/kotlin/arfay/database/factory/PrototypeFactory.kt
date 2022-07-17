@@ -10,8 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 package arfay.database.factory
 
-import net.arfay.sdk.database.*
-import net.arfay.sdk.database.SerialStorage
+import arfay.database.*
 import java.io.*
 
 /**

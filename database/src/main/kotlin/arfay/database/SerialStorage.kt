@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 package arfay.database
 
+import arfay.database.factory.PrototypeFactory
 import kotlinx.serialization.Serializable
-import net.arfay.sdk.database.factory.PrototypeFactory
 import java.io.File
 
 /**
