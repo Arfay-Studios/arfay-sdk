@@ -10,15 +10,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 package arfay.sdk.extensions
 
-import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.plugin.Plugin
+import org.bukkit.scheduler.*
 
 inline fun task(
     delayToRun: Long = 0,
     repeatDelay: Long = -1,
     plugin: Plugin,
     crossinline runnable: BukkitRunnable.() -> Unit
-) = task(delayToRun, repeatDelay, false, plugin, runnable)
+): BukkitTask = task(delayToRun, repeatDelay, false, plugin, runnable)
 
 inline fun Plugin.task(
     delayToRun: Long = 0,
@@ -37,7 +37,7 @@ inline fun taskAsync(
     repeatDelay: Long = -1,
     plugin: Plugin,
     crossinline runnable: BukkitRunnable.() -> Unit
-) = task(delayToRun, repeatDelay, true, plugin, runnable)
+): BukkitTask = task(delayToRun, repeatDelay, true, plugin, runnable)
 
 inline fun Plugin.taskAsync(
     delayToRun: Long = 0,
@@ -57,7 +57,7 @@ inline fun task(
     async: Boolean,
     plugin: Plugin,
     crossinline runnable: BukkitRunnable.() -> Unit
-) = scheduler(runnable).run {
+): BukkitTask = scheduler(runnable).run {
     if (repeatDelay > -1) if (async) runTaskTimerAsynchronously(plugin, delayToRun, repeatDelay) else runTaskTimer(plugin, delayToRun, repeatDelay)
     else if (delayToRun > 0) if (async) runTaskLaterAsynchronously(plugin, delayToRun) else runTaskLater(plugin, delayToRun)
     else if (async) runTaskAsynchronously(plugin) else runTask(plugin)

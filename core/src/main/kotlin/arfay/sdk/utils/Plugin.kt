@@ -8,17 +8,17 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 */
 
-package arfay.sdk.extensions
+package arfay.sdk.utils
 
-import org.bukkit.event.Listener
-import org.bukkit.plugin.Plugin
+import org.bukkit.event.*
+import org.bukkit.plugin.*
 
 fun Plugin.registerEvents(
-    vararg listeners: Listener
+   vararg listeners: Listener,
 ) = listeners.forEach { server.pluginManager.registerEvents(it, this) }
 
 fun ArfayPlugin<*>.registerEvents(
-    vararg listeners: Listener
+   vararg listeners: Listener,
 ) = plugin.registerEvents(*listeners)
 
 // logger
@@ -34,4 +34,6 @@ fun ArfayPlugin<*>.severe(message: String) = plugin.severe(message)
 fun ArfayPlugin<*>.debug(message: String) = plugin.debug(message)
 fun ArfayPlugin<*>.fine(message: String) = plugin.fine(message)
 
-interface ArfayPlugin<T : Plugin> { val plugin: T }
+interface ArfayPlugin<T : Plugin> {
+   val plugin: T
+}

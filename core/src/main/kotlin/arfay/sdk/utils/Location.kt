@@ -12,7 +12,7 @@ package arfay.sdk.extensions
 
 import org.bukkit.*
 import org.bukkit.block.Block
-import org.bukkit.entity.Entity
+import org.bukkit.entity.*
 import org.bukkit.inventory.ItemStack
 import org.bukkit.material.MaterialData
 import org.bukkit.util.Vector
@@ -31,23 +31,23 @@ infix fun Block.eqType(block: Block) = typeId == block.typeId && data == block.d
 infix fun Block.eqType(data: MaterialData) = typeId == data.itemTypeId && this.data == data.data
 infix fun Block.eqType(material: Material) = typeId == material.id
 
-fun Location.dropItem(item: ItemStack) = world.dropItem(this, item)
-fun Location.dropItemNaturally(item: ItemStack) = world.dropItemNaturally(this, item)
+fun Location.dropItem(item: ItemStack): Item = world.dropItem(this, item)
+fun Location.dropItemNaturally(item: ItemStack): Item = world.dropItemNaturally(this, item)
 
-fun Location.spawnArrow(direction: Vector, speed: Float, spread: Float) = world.spawnArrow(this, direction, speed, spread)
+fun Location.spawnArrow(direction: Vector, speed: Float, spread: Float): Arrow = world.spawnArrow(this, direction, speed, spread)
 
 fun Location.generateTree(type: TreeType) = world.generateTree(this, type)
 fun Location.generateTree(type: TreeType, delegate: BlockChangeDelegate) = world.generateTree(this, type, delegate)
 
-fun Location.strikeLightning() = world.strikeLightning(this)
-fun Location.strikeLightningEffect() = world.strikeLightningEffect(this)
+fun Location.strikeLightning(): LightningStrike = world.strikeLightning(this)
+fun Location.strikeLightningEffect(): LightningStrike = world.strikeLightningEffect(this)
 
-fun Location.getNearbyEntities(x: Double, y: Double, z: Double) = world.getNearbyEntities(this, x, y, z)
+fun Location.getNearbyEntities(x: Double, y: Double, z: Double): MutableCollection<Entity> = world.getNearbyEntities(this, x, y, z)
 
 fun Location.createExplosion(power: Float) = world.createExplosion(this, power)
 fun Location.createExplosion(power: Float, setFire: Boolean) = world.createExplosion(this, power, setFire)
 
-inline fun <reified T : Entity> Location.spawn() = world.spawn<T>(this)
+inline fun <reified T : Entity> Location.spawn(): T = world.spawn(this, T::class.java)
 
 fun Location.playEffect(effect: Effect, data: Int) = world.playEffect(this, effect, data)
 fun Location.playEffect(effect: Effect, data: Int, radius: Int) = world.playEffect(this, effect, data, radius)

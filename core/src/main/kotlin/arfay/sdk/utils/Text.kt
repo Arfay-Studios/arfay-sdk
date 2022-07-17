@@ -8,21 +8,17 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 */
 
-package arfay.sdk.extensions
+package arfay.sdk.utils
 
-import net.arfay.sdk.chat.append
-import net.md_5.bungee.api.chat.BaseComponent
-import net.md_5.bungee.api.chat.ClickEvent
-import net.md_5.bungee.api.chat.HoverEvent
-import net.md_5.bungee.api.chat.TextComponent
-import net.md_5.bungee.chat.ComponentSerializer
-import net.md_5.bungee.api.ChatColor as BungeeColor
+import arfay.sdk.chat.*
+import net.md_5.bungee.api.chat.*
+import net.md_5.bungee.chat.*
 import org.bukkit.ChatColor
-import org.bukkit.command.CommandSender
-import org.bukkit.conversations.Conversable
-import org.bukkit.conversations.ConversationContext
-import org.bukkit.entity.Player
-import kotlin.reflect.KProperty
+import org.bukkit.command.*
+import org.bukkit.conversations.*
+import org.bukkit.entity.*
+import kotlin.reflect.*
+import net.md_5.bungee.api.ChatColor as BungeeColor
 
 fun CommandSender.msg(message: String) = sendMessage(message)
 fun CommandSender.msg(message: Array<String>) = sendMessage(message)
@@ -36,7 +32,7 @@ fun ConversationContext.msg(message: String) = forWhom.message(message)
 
 fun textOf(text: String) = text.asText()
 
-fun String.translateColor(code: Char = '&') = ChatColor.translateAlternateColorCodes(code, this)
+fun String.translateColor(code: Char = '&'): String = ChatColor.translateAlternateColorCodes(code, this)
 fun Collection<String>.translateColor(code: Char = '&') = map { it.translateColor(code) }
 fun <V> Map<String, V>.translateColorKeys(code: Char = '&') = mapKeys { it.key.translateColor(code) }
 fun <K> Map<K, String>.translateColorValues(code: Char = '&') = mapValues { it.value.translateColor(code) }

@@ -8,7 +8,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 */
 
-package arfay.sdk.strings
+package arfay.sdk.utils
 
 import net.md_5.bungee.api.chat.BaseComponent
 import net.md_5.bungee.api.chat.TextComponent
@@ -51,16 +51,6 @@ fun Iterable<String>.colored(): List<String> {
  * Reverse colorizes this string, replacing '&' to '§'.
  */
 fun String.reverseColorize(): String = replace('&', '§')
-
-/**
- * Colorizes this string, replacing '§' to '&'.
- */
-operator fun String.unaryMinus(): String = replace('§', '&')
-
-/**
- * Reverse colorizes this string, replacing '&' to '§'.
- */
-operator fun String.unaryPlus(): String = replace('&', '§')
 
 /**
  * Uncolorize this string, this is, making this string without colors.
@@ -133,3 +123,4 @@ fun String.process(values: Map<String, Any>): String {
       processed = processed.process(value.key, value.value)
    return processed
 }
+
