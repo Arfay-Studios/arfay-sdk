@@ -8,19 +8,16 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 */
 
-package arfay.core.extensions
+package arfay.core.utils
 
-import arfay.core.utils.*
 import org.bukkit.*
-import org.bukkit.entity.Player
-import org.bukkit.inventory.ItemStack
-import org.bukkit.inventory.Recipe
-import org.bukkit.plugin.PluginManager
-import org.bukkit.plugin.ServicesManager
-import org.bukkit.plugin.messaging.Messenger
-import org.bukkit.scheduler.BukkitScheduler
-import org.bukkit.scoreboard.ScoreboardManager
-import java.io.File
+import org.bukkit.entity.*
+import org.bukkit.inventory.*
+import org.bukkit.plugin.*
+import org.bukkit.plugin.messaging.*
+import org.bukkit.scheduler.*
+import org.bukkit.scoreboard.*
+import java.io.*
 import java.util.*
 
 val isPrimaryThread get() = server.isPrimaryThread

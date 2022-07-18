@@ -9,6 +9,7 @@ import it.unimi.dsi.fastutil.longs.*
 import it.unimi.dsi.fastutil.objects.*
 import it.unimi.dsi.fastutil.shorts.*
 import net.minecraft.server.v1_8_R3.Block
+import net.minecraft.server.v1_8_R3.Entity
 import net.minecraft.server.v1_8_R3.ItemStack
 import net.minecraft.server.v1_8_R3.NBTTagCompound
 import net.minecraft.server.v1_8_R3.World
@@ -38,11 +39,19 @@ typealias LongObjectTreeMap<T> = Long2ObjectRBTreeMap<T>
 typealias FloatObjectTreeMap<T> = Float2ObjectRBTreeMap<T>
 typealias DoubleObjectTreeMap<T> = Double2ObjectRBTreeMap<T>
 
+typealias ByteSet = ByteOpenHashSet
+typealias ShortSet = ShortOpenHashSet
+typealias IntSet = IntOpenHashSet
+typealias LongSet = LongOpenHashSet
+typealias FloatSet = FloatOpenHashSet
+typealias DoubleSet = DoubleOpenHashSet
+
 typealias Profile = GameProfile
 
 typealias FloatRange = ClosedFloatingPointRange<Float>
 typealias DoubleRange = ClosedFloatingPointRange<Double>
 
+typealias NMSEntity = Entity
 typealias NBTCompound = NBTTagCompound
 typealias NMSItem = ItemStack
 typealias NMSBlock = Block

@@ -56,7 +56,7 @@ allprojects {
    apply(plugin = "java")
    apply(plugin = "com.github.johnrengelman.shadow")
    
-   group = "net.arfay"
+   group = "arfay"
    version = "1.0-SNAPSHOT"
    
    repositories {
@@ -66,7 +66,7 @@ allprojects {
    }
    
    dependencies {
-      APIDependencies.forEach(::api)
+      APIDependencies.forEach(::compileOnly)
       
       // spigot
       compileOnly("org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT")
@@ -75,13 +75,18 @@ allprojects {
       annotationProcessor("org.projectlombok:lombok:1.18.22")
    }
    
-   
    tasks {
       withType<GenerateModuleMetadata> {
          isEnabled = false
       }
       
+      compileKotlin {
+         kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.time.ExperimentalTime," + "kotlin.ExperimentalStdlibApi," + "kotlinx.coroutines.DelicateCoroutinesApi," + "kotlinx.coroutines.ExperimentalCoroutinesApi," + "kotlinx.serialization.ExperimentalSerializationApi," + "kotlinx.serialization.InternalSerializationApi," + "com.google.devtools.ksp.KspExperimental"
+      }
+      
       shadowJar {
+         archiveName = "arfay-sdk.jar"
+         
          // applies filters to not include some dependencies on the shadow jar
          // since we'll use repository-lib to provide all dependency to make
          // the final shadow jar smaller.

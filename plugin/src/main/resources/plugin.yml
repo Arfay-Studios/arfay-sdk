@@ -1,0 +1,6 @@
+name: ArfaySDK
+version: 1.0
+main: arfay.sdk.Main
+authors:
+  - uin
+  - Gabrideiros

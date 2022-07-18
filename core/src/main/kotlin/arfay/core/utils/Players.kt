@@ -1,6 +1,9 @@
 package arfay.core.utils
 
+import arfay.core.chat.*
+import arfay.core.misc.*
 import net.minecraft.server.v1_8_R3.*
+import org.bukkit.*
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.craftbukkit.v1_8_R3.entity.*
@@ -26,6 +29,12 @@ val Player.connection: PlayerConnection
    get() = handler.playerConnection
 
 /**
+ * Returns the head of this player.
+ */
+val OfflinePlayer.head: org.bukkit.inventory.ItemStack
+   get() = ItemBuilder(Materials.PLAYER_SKULL.toItem()).skullOwner(name).build()
+
+/**
  * Sends a packet to this player.
  */
 fun Player.sendPacket(packet: Packet<out PacketListener>) {
@@ -37,6 +46,28 @@ fun Player.sendPacket(packet: Packet<out PacketListener>) {
  */
 fun Player.actionBar(message: String) {
    sendPacket(PacketPlayOutChat(IChatBaseComponent.ChatSerializer.a("{\"text\":\"$message\"}"), 2.toByte()))
+}
+
+/**
+ * Sends a title to this player.
+ */
+fun Player.title(
+	title: String = "",
+	subtitle: String = "",
+	fadeIn: Int = 20,
+	stay: Int = 40,
+	fadeOut: Int = 20,
+) {
+	sendPacket(PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, createChatComponent(title)))
+	sendPacket(PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, createChatComponent(subtitle)))
+	sendPacket(PacketPlayOutTitle(fadeIn, stay, fadeOut))
+}
+
+/**
+ * Plays a sound for this player.
+ */
+fun Player.playSound(sound: Sound, volume: Float = 1f, pitch: Float = 1f) {
+	playSound(location, sound, volume, pitch)
 }
 
 /**

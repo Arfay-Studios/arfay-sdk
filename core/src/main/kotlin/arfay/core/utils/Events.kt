@@ -1,9 +1,10 @@
 package arfay.core.utils
 
-import arfay.core.extensions.*
 import arfay.core.misc.*
+import org.bukkit.entity.Player
 import org.bukkit.event.*
 import org.bukkit.event.block.*
+import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.*
 import org.bukkit.plugin.*
 import kotlin.reflect.*
@@ -27,6 +28,12 @@ val PlayerInteractEvent.isLeftClick: Boolean
  */
 val PlayerInteractEvent.isRightClick: Boolean
    get() = action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK
+
+/**
+ * Gets the player who clicked this inventory event.
+ */
+inline val InventoryClickEvent.player: Player
+   get() = whoClicked as Player
 
 /**
  * Register a event listener with the specified event in generic type in this server.

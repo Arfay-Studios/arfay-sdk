@@ -6,6 +6,22 @@ package arfay.core.utils
 val <T> Iterable<T>.size get() = if (this is Collection) size else count()
 
 /**
+ * Checks if this iterable is empty.
+ */
+fun Iterable<*>.isEmpty(): Boolean {
+	if (this is Collection<*>) return this.isEmpty()
+	return !iterator().hasNext()
+}
+
+/**
+ * Checks if this iterable is empty.
+ */
+fun Iterable<*>.isNotEmpty(): Boolean {
+	if (this is Collection<*>) return !this.isEmpty()
+	return iterator().hasNext()
+}
+
+/**
  * Process only specified placeholder in this iterable object.
  */
 fun Iterable<String>.process(value: Pair<String, Any>): List<String> = map {

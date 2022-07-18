@@ -18,12 +18,12 @@ data class Slot(var slot: Int, var item: @Contextual ItemStack)
 /**
  * Gives this slot representation to the specified inventory.
  */
-inline fun Slot.give(inventory: Inventory) = inventory.setItem(slot, item)
+inline fun Slot.add(inventory: Inventory) = inventory.setItem(slot, item)
 
 /**
  * Gives this slot representation to the specified player.
  */
-inline fun Slot.give(player: Player) = player.inventory.setItem(slot, item)
+inline fun Slot.add(player: Player) = player.inventory.setItem(slot, item)
 
 /**
  * Copies this slot and applies the [block] function to this.
