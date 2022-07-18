@@ -1,4 +1,4 @@
-package walkmc.instructor
+package arfay.command
 
 /**
  * A instructable object thats can instruct a command to execute.

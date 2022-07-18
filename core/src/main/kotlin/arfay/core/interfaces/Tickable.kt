@@ -1,6 +1,6 @@
-package walkmc.interfaces
+package arfay.core.interfaces
 
-import walkmc.extensions.*
+import arfay.core.utils.server
 
 /**
  * A tickable interface represents an object that can tick in the server.
@@ -20,16 +20,5 @@ interface Tickable {
 	 * Tick execution.
 	 */
 	fun onTick()
-	
-	/**
-	 * Starts the executions of this tickable.
-	 */
-	fun register() = server.registerTickable(this)
-	
-	/**
-	 * Stops the execution of this tickable.
-	 *
-	 * One time stopped, the execution cannot be done until calling [register].
-	 */
-	fun unregister() = server.unregisterTickable(this)
+
 }

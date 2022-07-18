@@ -9,6 +9,7 @@ import org.bukkit.block.Block
 import org.bukkit.craftbukkit.v1_8_R3.entity.*
 import org.bukkit.entity.*
 import org.bukkit.util.*
+import java.util.*
 
 /**
  * Gets this player as [CraftPlayer].
@@ -96,3 +97,13 @@ fun Player.getTargetBlockAir(range: Int): Block {
         lastBlock = iterator.next()
     return lastBlock
 }
+
+inline val Player.uuid: UUID get() = uniqueId
+
+inline val OfflinePlayer.uuid: UUID get() = uniqueId
+
+fun Player.clearInventory() {
+    inventory.armorContents = null
+    inventory.clear()
+}
+

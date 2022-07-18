@@ -1,4 +1,4 @@
-package walkmc.instructor
+package arfay.command
 
 internal fun createInstructor(
 	name: String,
@@ -18,12 +18,12 @@ internal fun createInstructor(
 }
 
 internal fun createInstructorChildren(
-	parent: Instructor,
-	name: String,
-	vararg aliases: String = emptyArray(),
-	justPlayers: Boolean = false,
-	permission: String? = null,
-	action: Instructor.() -> Unit
+    parent: Instructor,
+    name: String,
+    vararg aliases: String = emptyArray(),
+    justPlayers: Boolean = false,
+    permission: String? = null,
+    action: Instructor.() -> Unit
 ): ChildrenInstructor {
 	return ChildrenInstructor(parent, name, *aliases) {
 		sender = if (justPlayers) Sender.PLAYER else Sender.ALL

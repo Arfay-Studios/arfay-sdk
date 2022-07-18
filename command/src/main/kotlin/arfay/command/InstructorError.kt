@@ -1,4 +1,4 @@
-package walkmc.instructor
+package arfay.command
 
 /**
  * Represents a instructor error, this is, when a required argument

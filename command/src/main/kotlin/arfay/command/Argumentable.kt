@@ -1,4 +1,4 @@
-package walkmc.instructor
+package arfay.command
 
 import arfay.core.utils.*
 import com.google.common.collect.*

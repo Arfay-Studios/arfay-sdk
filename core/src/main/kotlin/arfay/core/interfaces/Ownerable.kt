@@ -1,8 +1,10 @@
-package walkmc.interfaces
+package arfay.core.interfaces
 
+import arfay.core.utils.toOfflinePlayer
+import arfay.core.utils.toPlayer
+import arfay.core.utils.uuid
 import org.bukkit.*
 import org.bukkit.entity.*
-import walkmc.extensions.*
 import java.util.*
 
 /**

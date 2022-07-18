@@ -1,7 +1,8 @@
-package walkmc.instructor.common
+package arfay.command.common
 
+import arfay.command.CommandRegistry
+import arfay.command.Instructor
 import org.bukkit.command.*
-import walkmc.instructor.*
 
 /**
  * Converts this command to a instructor.

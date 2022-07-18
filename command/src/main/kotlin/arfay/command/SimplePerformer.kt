@@ -1,4 +1,4 @@
-package walkmc.instructor
+package arfay.command
 
 import org.bukkit.*
 import org.bukkit.command.*

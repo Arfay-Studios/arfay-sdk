@@ -1,4 +1,4 @@
-package walkmc.instructor
+package arfay.command
 
 import arfay.core.utils.*
 import net.md_5.bungee.api.chat.*
