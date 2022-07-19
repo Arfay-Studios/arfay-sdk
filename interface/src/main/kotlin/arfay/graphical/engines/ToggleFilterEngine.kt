@@ -1,9 +1,8 @@
 package arfay.graphical.engines
 
 import arfay.core.utils.*
+import arfay.graphical.*
 import org.bukkit.inventory.*
-import walkmc.*
-import walkmc.graphical.*
 
 /**
  * A toggle engine that's will toggle the filter state of a filter graphical.

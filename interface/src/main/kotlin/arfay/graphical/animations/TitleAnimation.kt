@@ -1,8 +1,8 @@
 package arfay.graphical.animations
 
 import arfay.core.utils.*
+import arfay.graphical.*
 import com.soywiz.kds.random.*
-import walkmc.graphical.*
 
 fun <T> Array<T>.toIndexList() = IndexList(asIterable())
 

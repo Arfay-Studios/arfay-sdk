@@ -1,9 +1,8 @@
 package arfay.graphical.engines
 
 import arfay.core.utils.*
+import arfay.graphical.*
 import org.bukkit.inventory.*
-import walkmc.*
-import walkmc.graphical.*
 
 /**
  * An implementation of [ReqEngine] that's show's an empty index.

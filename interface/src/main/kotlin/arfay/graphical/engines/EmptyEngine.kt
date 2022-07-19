@@ -1,11 +1,11 @@
 package arfay.graphical.engines
 
 import arfay.core.utils.*
+import arfay.graphical.*
+import arfay.graphical.interfaces.*
 import org.bukkit.*
 import org.bukkit.event.inventory.*
 import org.bukkit.inventory.*
-import walkmc.graphical.*
-import walkmc.graphical.interfaces.*
 
 object EmptyEngine : Engine(Materials.AIR) {
    override var graphical: IGraphical? = null; set(value) = Unit

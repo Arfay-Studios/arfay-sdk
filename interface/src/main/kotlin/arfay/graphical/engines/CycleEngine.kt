@@ -1,10 +1,10 @@
 package arfay.graphical.engines
 
 import arfay.core.utils.*
+import arfay.graphical.*
+import arfay.graphical.interfaces.*
 import org.bukkit.event.inventory.*
 import org.bukkit.inventory.*
-import walkmc.graphical.*
-import walkmc.graphical.interfaces.*
 
 typealias CycleCallback<T> = T.(Int) -> Unit
 

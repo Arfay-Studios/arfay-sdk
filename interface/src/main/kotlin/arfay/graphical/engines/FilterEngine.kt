@@ -1,12 +1,11 @@
 package arfay.graphical.engines
 
 import arfay.core.utils.*
+import arfay.graphical.*
+import arfay.graphical.common.*
+import arfay.graphical.interfaces.*
 import org.bukkit.event.inventory.*
 import org.bukkit.inventory.*
-import walkmc.*
-import walkmc.graphical.*
-import walkmc.graphical.common.*
-import walkmc.graphical.interfaces.*
 
 /**
  * An implementation of [Engine] for easily creation of filter engines.

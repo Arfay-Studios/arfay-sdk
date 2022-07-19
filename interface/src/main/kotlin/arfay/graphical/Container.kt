@@ -1,10 +1,14 @@
 package arfay.graphical
 
 import arfay.core.utils.*
+import arfay.graphical.animations.*
+import arfay.graphical.common.*
+import arfay.graphical.dsl.*
+import arfay.graphical.interfaces.*
+import arfay.graphical.schema.*
 import net.minecraft.server.v1_8_R3.*
 import org.bukkit.entity.*
 import org.bukkit.inventory.*
-import walkmc.graphical.common.*
 
 typealias OpenInvPacket = PacketPlayOutOpenWindow
 
@@ -14,7 +18,7 @@ typealias OpenInvPacket = PacketPlayOutOpenWindow
  * The purpose of this class is to provide better tick execution and Spigot compatibility.
  */
 open class Container(
-   val graphical: arfay.graphical.IGraphical,
+   val graphical: IGraphical,
    playerInventory: IInventory,
    inventory: IInventory,
    player: EntityHuman,
@@ -22,8 +26,8 @@ open class Container(
    
    var ticks = 0
    
-   constructor(graphical: arfay.graphical.IGraphical, player: Player, inventory: Inventory) :
-      this(graphical, player.inventory.handler, inventory.handler, player.handler)
+   constructor(graphical: IGraphical, player: Player, inventory: Inventory) :
+         this(graphical, player.inventory.handler, inventory.handler, player.handler)
    
    /**
     * Opens this container to [player].
@@ -41,9 +45,7 @@ open class Container(
       if (handler.activeContainer != handler.defaultContainer)
          handler.closeInventory()
       
-      handler.playerConnection.sendPacket(
-         arfay.graphical.OpenInvPacket(id, "minecraft:chest", ChatMessage(graphical.title), graphical.size)
-      )
+      handler.playerConnection.sendPacket(OpenInvPacket(id, "minecraft:chest", ChatMessage(graphical.title), graphical.size))
       handler.activeContainer = this
       windowId = id
       addSlotListener(handler)

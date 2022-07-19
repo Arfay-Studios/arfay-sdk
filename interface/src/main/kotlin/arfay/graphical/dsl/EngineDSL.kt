@@ -1,10 +1,9 @@
 package arfay.graphical.dsl
 
 import arfay.core.utils.*
+import arfay.graphical.*
+import arfay.graphical.engines.*
 import org.bukkit.inventory.*
-import walkmc.*
-import walkmc.graphical.*
-import walkmc.graphical.engines.*
 
 //
 // Delegate engines
@@ -144,14 +143,14 @@ fun IGraphical.toggleEngine(slot: Int, model: ItemStack) =
  * Installs a toggle filter engine in the specified [slot] applying [block].
  */
 inline fun FilterGraphical<*>.toggleFilterEngine(
-   slot: Int, material: Materials, block: ToggleFilterEngine.() -> Unit
+   slot: Int, material: Materials, block: ToggleFilterEngine.() -> Unit,
 ) = makeEngine(slot, ToggleFilterEngine(material), block)
 
 /**
  * Installs a toggle filter engine in the specified [slot] applying [block].
  */
 inline fun FilterGraphical<*>.toggleFilterEngine(
-   slot: Int, model: ItemStack, block: ToggleFilterEngine.() -> Unit
+   slot: Int, model: ItemStack, block: ToggleFilterEngine.() -> Unit,
 ) = makeEngine(slot, ToggleFilterEngine(model), block)
 
 /**
@@ -174,14 +173,14 @@ fun FilterGraphical<*>.toggleFilterEngine(slot: Int, model: ItemStack) =
  * Installs a toggle sorter engine in the specified [slot] applying [block].
  */
 inline fun SortGraphical<*>.toggleSorterEngine(
-   slot: Int, material: Materials, block: ToggleSorterEngine.() -> Unit
+   slot: Int, material: Materials, block: ToggleSorterEngine.() -> Unit,
 ) = makeEngine(slot, ToggleSorterEngine(material), block)
 
 /**
  * Installs a toggle sorter engine in the specified [slot] applying [block].
  */
 inline fun SortGraphical<*>.toggleSorterEngine(
-   slot: Int, model: ItemStack, block: ToggleSorterEngine.() -> Unit
+   slot: Int, model: ItemStack, block: ToggleSorterEngine.() -> Unit,
 ) = makeEngine(slot, ToggleSorterEngine(model), block)
 
 /**

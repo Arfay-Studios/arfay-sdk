@@ -1,9 +1,9 @@
 package arfay.graphical.engines
 
 import arfay.core.utils.*
+import arfay.graphical.*
 import org.bukkit.event.inventory.*
 import org.bukkit.inventory.*
-import walkmc.graphical.*
 
 /**
  * An implementation of [Engine] that's can support a sequence of requirements

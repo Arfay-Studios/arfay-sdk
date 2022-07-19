@@ -1,7 +1,8 @@
 package arfay.graphical.interfaces
 
-import walkmc.graphical.*
-import walkmc.graphical.common.*
+import arfay.graphical.*
+import arfay.graphical.common.*
+
 
 typealias ScrollAction = Action<IScrollGraphical>
 typealias ScrollSet = MutableSet<ScrollAction>
@@ -14,22 +15,22 @@ typealias ScrollSet = MutableSet<ScrollAction>
  * to register and trigger all handlers when a [IScrollGraphical] scrolls.
  */
 interface Scrollable {
-	
-	/**
-	 * All registered scroll handlers
-	 * of this scrollable object.
-	 */
-	var scrollers: ScrollSet
-	
-	/**
-	 * Triggers all registered handlers
-	 * of this scrollable object.
-	 */
-	fun scroll()
-	
-	/**
-	 * Register a handler to be triggered when
-	 * a [IScrollGraphical] scrolls.
-	 */
-	fun onScroll(action: ScrollAction) = scrollers.add(action)
+   
+   /**
+    * All registered scroll handlers
+    * of this scrollable object.
+    */
+   var scrollers: ScrollSet
+   
+   /**
+    * Triggers all registered handlers
+    * of this scrollable object.
+    */
+   fun scroll()
+   
+   /**
+    * Register a handler to be triggered when
+    * a [IScrollGraphical] scrolls.
+    */
+   fun onScroll(action: ScrollAction) = scrollers.add(action)
 }

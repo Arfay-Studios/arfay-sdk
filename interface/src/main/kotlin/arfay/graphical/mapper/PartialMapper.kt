@@ -1,6 +1,6 @@
 package arfay.graphical.mapper
 
-import walkmc.graphical.*
+import arfay.graphical.*
 
 /**
  * A partial mapper is a [Mapper] that will
@@ -10,7 +10,7 @@ import walkmc.graphical.*
  * This is the default mapper.
  */
 object PartialMapper : Mapper {
-	override fun map(graphical: IScrollGraphical, engines: Source): Scrollers {
-		return engines.chunked(graphical.enginesPerPage)
-	}
+   override fun map(graphical: IScrollGraphical, engines: Source): Scrollers {
+      return engines.chunked(graphical.enginesPerPage)
+   }
 }

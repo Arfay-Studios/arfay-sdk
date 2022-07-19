@@ -1,6 +1,6 @@
 package arfay.graphical.engines
 
-import walkmc.graphical.*
+import arfay.graphical.*
 import kotlin.properties.*
 import kotlin.reflect.*
 import java.util.*

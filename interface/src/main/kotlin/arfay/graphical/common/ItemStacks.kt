@@ -3,9 +3,9 @@
 package arfay.graphical.common
 
 import arfay.core.utils.*
+import arfay.graphical.*
+import arfay.graphical.engines.*
 import org.bukkit.inventory.*
-import walkmc.graphical.*
-import walkmc.graphical.engines.*
 
 inline fun ItemStack.toEngine() = Engine(this)
 inline fun ItemStack.toCycleEngine() = CycleEngine(this)

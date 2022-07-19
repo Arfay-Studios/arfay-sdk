@@ -3,9 +3,8 @@
 package arfay.graphical.schema
 
 import arfay.core.utils.*
-import it.unimi.dsi.fastutil.ints.IntOpenHashSet
-import walkmc.graphical.*
-import walkmc.graphical.common.*
+import arfay.graphical.*
+import arfay.graphical.common.*
 
 /**
  * A schema represents how a Scroll graphical

@@ -2,8 +2,8 @@
 
 package arfay.graphical.common
 
+import arfay.graphical.*
 import org.bukkit.entity.*
-import walkmc.graphical.*
 
 /**
  * Makes this player access the specified interface

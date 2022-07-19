@@ -1,10 +1,10 @@
 package arfay.graphical
 
 import arfay.core.utils.*
+import arfay.graphical.common.*
+import arfay.graphical.interfaces.*
 import org.bukkit.entity.*
 import org.bukkit.inventory.*
-import walkmc.graphical.common.*
-import walkmc.graphical.interfaces.*
 import kotlin.math.max
 
 /**
@@ -44,7 +44,7 @@ interface IGraphical : Interface, Accessible, Renderable, Observable, Tickable {
          return
       
       render()
-      arfay.graphical.Container(this, player, model).open(player)
+      Container(this, player, model).open(player)
       
       isOpen = true
       accesseds++

@@ -1,7 +1,7 @@
 package arfay.graphical.common
 
 import arfay.core.utils.*
-import net.minecraft.server.*
+import arfay.graphical.*
 import net.minecraft.server.v1_8_R3.*
 import org.bukkit.Material
 import org.bukkit.craftbukkit.v1_8_R3.inventory.*
@@ -9,8 +9,6 @@ import org.bukkit.event.inventory.*
 import org.bukkit.inventory.*
 import org.bukkit.inventory.ItemStack
 import org.bukkit.material.*
-import walkmc.*
-import walkmc.graphical.*
 
 /**
  * Gets the craft inventory represented by this inventory.
@@ -31,11 +29,11 @@ inline val Inventory.hasSpace get() = firstEmpty() != -1
  * Fills all slots with the inventory with gived item.
  */
 fun Inventory.fill(item: ItemStack, replaces: Boolean = false) {
-	for (index in 0 until size) {
-		if (getItem(index) != null && !replaces)
-			continue
-		setItem(index, item)
-	}
+   for (index in 0 until size) {
+      if (getItem(index) != null && !replaces)
+         continue
+      setItem(index, item)
+   }
 }
 
 /**
@@ -58,11 +56,11 @@ fun Inventory.fill(data: MaterialData, replaces: Boolean = false) = fill(data.to
  * or nulls, if the inventory is not an interface.
  */
 fun Inventory.interfaceOrNull(): IGraphical? {
-	return if (holder is IGraphical) holder as IGraphical else null
+   return if (holder is IGraphical) holder as IGraphical else null
 }
 
 inline fun <reified T : IGraphical> Inventory.graphical(): T? {
-	return if (holder is T) holder as T else null
+   return if (holder is T) holder as T else null
 }
 
 /**

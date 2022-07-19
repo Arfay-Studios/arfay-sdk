@@ -1,6 +1,6 @@
 package arfay.graphical.dsl
 
-import walkmc.graphical.*
+import arfay.graphical.*
 
 /**
  * Constructs a new graphical with the given [title] and [lines].

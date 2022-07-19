@@ -1,9 +1,9 @@
 package arfay.graphical
 
 import arfay.core.utils.*
+import arfay.graphical.interfaces.*
 import org.bukkit.event.inventory.*
 import org.bukkit.inventory.*
-import walkmc.graphical.interfaces.*
 import kotlin.math.max
 import java.util.concurrent.*
 
@@ -24,7 +24,10 @@ typealias EngineStack = ConcurrentHashMap<Int, Engine>
  */
 open class Engine : ItemStack, Alterable, Renderable, Pressable, Visible, Metadatable, Scrollable, Tickable {
    constructor(type: Materials, amount: Int = 1) : super(type.toItem(amount))
-   constructor(stack: ItemStack, amount: Int = 1) : super(stack) { this.amount = amount }
+   constructor(stack: ItemStack, amount: Int = 1) : super(stack) {
+      this.amount = amount
+   }
+   
    constructor(stack: ItemStack) : super(stack)
    
    open var graphical: IGraphical? = null

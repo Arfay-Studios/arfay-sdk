@@ -1,8 +1,7 @@
 package arfay.graphical.animations
 
 import arfay.core.utils.*
-import walkmc.*
-import walkmc.graphical.*
+import arfay.graphical.*
 
 internal val GLASSES = Materials.filter { it.isPaneGlass }
 

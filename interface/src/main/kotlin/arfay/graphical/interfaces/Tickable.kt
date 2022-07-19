@@ -1,6 +1,7 @@
 package arfay.graphical.interfaces
 
-import walkmc.graphical.*
+import arfay.graphical.*
+
 
 typealias TickAction = IGraphical.(TickHandler) -> Unit
 typealias TickSet = MutableSet<TickHandler>

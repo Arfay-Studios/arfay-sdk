@@ -1,14 +1,14 @@
 package arfay.graphical
 
 import arfay.core.utils.*
-import walkmc.graphical.common.*
-import walkmc.graphical.interfaces.*
+import arfay.graphical.common.*
+import arfay.graphical.interfaces.*
 
 /**
  * A graphical interface with compatibility to sort and filter their engines indexes.
  */
 abstract class SortFilterGraphical<T>(
-   title: String, lines: Int = 6
+   title: String, lines: Int = 6,
 ) : IndexGraphical<T>(title, lines), Sortable<T>, Filterable<T> {
    
    open var limit = Int.MAX_VALUE

@@ -1,8 +1,8 @@
 package arfay.graphical.interfaces
 
 import arfay.core.utils.*
-import walkmc.graphical.common.*
-import walkmc.graphical.engines.*
+import arfay.graphical.common.*
+import arfay.graphical.engines.*
 
 typealias FilterPair<T> = Pair<String, Filter<T>>
 

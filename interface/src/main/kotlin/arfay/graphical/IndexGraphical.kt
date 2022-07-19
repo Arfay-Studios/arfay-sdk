@@ -1,10 +1,9 @@
 package arfay.graphical
 
 import arfay.core.utils.*
-import walkmc.*
-import walkmc.graphical.common.*
-import walkmc.graphical.dsl.*
-import walkmc.graphical.engines.*
+import arfay.graphical.common.*
+import arfay.graphical.dsl.*
+import arfay.graphical.engines.*
 
 /**
  * A graphical that's permits building index engines in time.

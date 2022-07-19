@@ -1,11 +1,10 @@
 package arfay.graphical.engines
 
 import arfay.core.utils.*
+import arfay.graphical.*
 import com.soywiz.korma.math.*
 import org.bukkit.event.inventory.*
 import org.bukkit.inventory.*
-import walkmc.*
-import walkmc.graphical.*
 
 /**
  * An abstract implementation of [Engine] that's holds a counter.

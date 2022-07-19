@@ -2,7 +2,6 @@ package arfay.graphical.engines
 
 import arfay.core.utils.*
 import org.bukkit.inventory.*
-import walkmc.*
 
 /**
  * An engine that's supports to be toggled.
@@ -39,5 +38,5 @@ open class ToggleEngine : CycleEngine {
       return super.addCycle(cycle)
    }
    
-
+   
 }

@@ -1,8 +1,8 @@
 package arfay.graphical
 
 import arfay.core.utils.*
-import walkmc.graphical.common.*
-import walkmc.graphical.interfaces.*
+import arfay.graphical.common.*
+import arfay.graphical.interfaces.*
 
 /**
  * A graphical interface with compatibility to sort their engines and indexes.

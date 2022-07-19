@@ -1,7 +1,7 @@
 package arfay.graphical.interfaces
 
 import arfay.core.utils.*
-import walkmc.graphical.engines.*
+import arfay.graphical.engines.*
 
 typealias SortPair<T> = Pair<String, Comparator<T>>
 

@@ -4,7 +4,7 @@ import java.util.*
 
 class Source(
    val graphical: IScrollGraphical,
-   private val delegate: MutableList<Engine> = LinkedList()
+   private val delegate: MutableList<Engine> = LinkedList(),
 ) : MutableList<Engine> by delegate {
    
    override fun add(element: Engine): Boolean {
