@@ -1,7 +1,5 @@
 package arfay.core.interfaces
 
-import arfay.core.utils.server
-
 /**
  * A tickable interface represents an object that can tick in the server.
  *

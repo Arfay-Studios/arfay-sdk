@@ -101,7 +101,7 @@ fun Instructor.findChildren(name: String): ChildrenInstructor? {
 fun Instructor.createChildren(
 	name: String,
 	vararg aliases: String = emptyArray(),
-	justPlayers: Boolean = false,
+	onlyPlayers: Boolean = false,
 	permission: String? = null,
 	action: Instructor.() -> Unit
 ): ChildrenInstructor {
@@ -109,7 +109,27 @@ fun Instructor.createChildren(
 		this,
 		name,
 		*aliases,
-		justPlayers = justPlayers,
+		onlyPlayers = onlyPlayers,
+		permission = permission,
+		action = action
+	)
+	
+	childrens.add(children)
+	return children
+}
+
+fun Instructor.createChildren(
+	name: String,
+	vararg aliases: String = emptyArray(),
+	sender: Sender = Sender.ALL,
+	permission: String? = null,
+	action: Instructor.() -> Unit
+): ChildrenInstructor {
+	val children = createInstructorChildren(
+		this,
+		name,
+		*aliases,
+		sender = sender,
 		permission = permission,
 		action = action
 	)

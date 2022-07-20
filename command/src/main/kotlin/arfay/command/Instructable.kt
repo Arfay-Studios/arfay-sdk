@@ -31,16 +31,16 @@ interface Instructable {
 /**
  * Creates a alternate instructor of this instructable
  */
-fun Instructor.sub(
+fun Instructor.complex(
 	name: String,
 	vararg aliases: String = emptyArray(),
-	justPlayers: Boolean = false,
+	onlyPlayers: Boolean = false,
 	permission: String? = null,
 	action: Instructor.() -> Unit
 ): ChildrenInstructor = createChildren(
 	name,
 	*aliases,
-	justPlayers = justPlayers,
+	onlyPlayers = onlyPlayers,
 	permission = permission,
 	action = action
 )
@@ -49,13 +49,12 @@ fun Instructor.sub(
  * Creates a alternate instructor with the specified
  * [action] as a performer of this instructable
  */
-fun Instructor.of(
+fun Instructor.sub(
 	name: String,
 	vararg aliases: String = emptyArray(),
-	justPlayers: Boolean = false,
+	onlyPlayers: Boolean = false,
 	permission: String? = null,
 	action: Performer.(Instructor) -> Unit
-): ChildrenInstructor = createChildren(name, *aliases, justPlayers = justPlayers, permission = permission) {
+): ChildrenInstructor = createChildren(name, *aliases, onlyPlayers = onlyPlayers, permission = permission) {
 	performs(action)
 }
-
