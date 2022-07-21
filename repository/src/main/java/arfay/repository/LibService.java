@@ -147,14 +147,19 @@ public final class LibService {
     */
    public static void loadSDK() {
       // kotlin
+      loadFromMaven("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10");
+      loadFromMaven("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10");
       loadFromMaven("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2");
-      
+      loadFromMaven("org.jetbrains.kotlin:kotlin-reflect:1.7.10");
+
       // database
       loadFromMaven("org.jetbrains.exposed:exposed-core:0.37.3");
       loadFromMaven("org.jetbrains.exposed:exposed-dao:0.37.3");
       loadFromMaven("org.jetbrains.exposed:exposed-jdbc:0.37.3");
-      loadFromMaven("com.zaxxer:HikariCP:5.0.1");
+      loadFromMaven("com.zaxxer:HikariCP:4.0.3");
       loadFromMaven("org.xerial:sqlite-jdbc:3.36.0.1");
+      loadFromMaven("org.slf4j:slf4j-api:1.7.30");
+      loadFromMaven("org.javassist:javassist:3.27.0-GA");
       
       // serialization
       loadFromMaven("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.3");

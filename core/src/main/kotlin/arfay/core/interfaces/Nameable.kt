@@ -1,4 +1,4 @@
-package walkmc.interfaces
+package arfay.core.interfaces
 
 /**
  * Represents an object that has a name.

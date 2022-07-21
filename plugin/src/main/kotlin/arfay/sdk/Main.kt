@@ -10,6 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 package arfay.sdk
 
+import arfay.graphical.loadInterfaceService
 import arfay.repository.*
 import org.bukkit.plugin.java.*
 
@@ -18,10 +19,11 @@ class Main : JavaPlugin() {
    override fun onLoad() {
       LibService.loadSDK()
       LibService.loadAll()
+
    }
-   
+
    override fun onEnable() {
-      
+      loadInterfaceService()
    }
    
    override fun onDisable() {
