@@ -55,6 +55,29 @@ var ItemStack.skull: String
    }
 
 /**
+ * Gets the tag of this item.
+ */
+var ItemStack.tag: NBTTagCompound
+   get() = toNMSOrNull()?.tag ?: NBTTagCompound()
+   set(value) {
+      val nms = toNMSOrNull() ?: return
+      nms.tag = value
+      itemMeta = CraftItemStack.getItemMeta(nms)
+   }
+
+/**
+ * Applies [action] to the tag of this item.
+ */
+fun ItemStack.withTag(action: NBTTagCompound.() -> Unit) {
+   val nms = toNMSOrNull() ?: return
+   if (!nms.hasTag())
+      nms.tag = NBTTagCompound()
+   
+   nms.tag.apply(action)
+   itemMeta = CraftItemStack.getItemMeta(nms)
+}
+
+/**
  * Creates a NMS copy item stack from this item.
  */
 fun ItemStack.toNMS(): NMSItem = CraftItemStack.asNMSCopy(this)
@@ -63,6 +86,9 @@ fun ItemStack.toNMS(): NMSItem = CraftItemStack.asNMSCopy(this)
  * Creates a NMS copy item stack from this item or null if the item cannot be converted.
  */
 fun ItemStack.toNMSOrNull(): NMSItem? = CraftItemStack.asNMSCopy(this)
+
+fun NMSItem.toBukkitCopy(): ItemStack = CraftItemStack.asBukkitCopy(this)
+fun NMSItem.toBukkitMirror(): CraftItemStack = CraftItemStack.asCraftMirror(this)
 
 /**
  * Saves this item stack to the given [tag].

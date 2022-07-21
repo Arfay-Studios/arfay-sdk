@@ -147,6 +147,7 @@ public final class LibService {
     */
    public static void loadSDK() {
       // kotlin
+      loadFromMaven("org.jetbrains.kotlin:kotlin-stdlib:1.7.10");
       loadFromMaven("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10");
       loadFromMaven("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10");
       loadFromMaven("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2");
